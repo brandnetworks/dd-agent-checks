@@ -268,7 +268,7 @@ class HTTPCheck(NetworkCheck):
             tags_list = list(tags)
             tags_list.append('url:%s' % addr)
             tags_list.append('status_code:%s' % str(r.status_code))
-            self.gauge('network.http.response_time', running_time, tags=tags_list)
+            self.gauge('bn.network.http.response_time', running_time, tags=tags_list)
 
         # Check HTTP response status code
         if not (service_checks or re.match(http_response_status_code, str(r.status_code))):
