@@ -261,12 +261,13 @@ class HTTPCheck(NetworkCheck):
             raise
 
         # Only report this metric if the site is not down
-        if response_time and not service_checks:
+        if response_time:
             # Stop the timer as early as possible
             running_time = time.time() - start
             # Store tags in a temporary list so that we don't modify the global tags data structure
             tags_list = list(tags)
             tags_list.append('url:%s' % addr)
+            tags_list.append('status_code:%s' % str(r.status_code))
             self.gauge('network.http.response_time', running_time, tags=tags_list)
 
         # Check HTTP response status code
