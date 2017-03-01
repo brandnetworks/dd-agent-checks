@@ -2,6 +2,13 @@
 # All rights reserved
 # Licensed under Simplified BSD License (see LICENSE)
 
+
+"""
+Dragged from datadog agent http_check here: https://github.com/DataDog/dd-agent/blob/8dfe2251b957039034fd1f199aa8da1158200207/checks.d/http_check.py
+
+Only changes are to always track the metric for response time, while also tagging the status code.
+"""
+
 # stdlib
 from datetime import datetime
 import _strptime # noqa
