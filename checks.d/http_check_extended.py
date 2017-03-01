@@ -425,8 +425,8 @@ class HTTPCheck(NetworkCheck):
                            )
 
     def check_cert_expiration(self, instance, timeout, instance_ca_certs):
-        warning_days = int(instance.get('days_warning', 14))
-        critical_days = int(instance.get('days_critical', 7))
+        warning_days = int(instance.get('days_warning', 28))
+        critical_days = int(instance.get('days_critical', 14))
         url = instance.get('url')
 
         o = urlparse(url)
